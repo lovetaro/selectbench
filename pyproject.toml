@@ -1,0 +1,37 @@
+[project]
+name = "selectbench"
+version = "0.1.0"
+description = "Selectivity benchmark for structure-based generative models"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+dependencies = [
+    "click",
+    "gemmi",
+    # Floors are the oldest versions verified; exact versions for reproducing
+    # our numbers are in constraints.txt.
+    "vina>=1.2.7,<1.3",
+    "rdkit>=2025.9.6",
+    "meeko>=0.7.1",
+    # meeko imports scipy at module-import time but declares no dependencies
+    # of its own, so selectbench must pull it in explicitly.
+    "scipy",
+    "tqdm",
+    "numpy",
+    "requests",
+    "pandas",
+    # scripts/generate_compose/gen_compose_targetdiff.py reads the sampling
+    # config with yaml. Imported lazily there, so --help works without it, but
+    # a compose run needs it.
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+# Boltz2 co-folding affinity scoring. ~5 GB of CUDA / cudnn / triton /
+# pytorch-lightning transitives — install only if you actually plan to use
+# `check-boltz2` / `--score_fn boltz2`.
+# See BOLTZ2.md.
+boltz2 = ["boltz", "pyyaml"]
+
+[project.scripts]
+selectbench = "selectbench.cli:cli"

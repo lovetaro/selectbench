@@ -1,0 +1,60 @@
+cff-version: 1.2.0
+message: >-
+  If you use SelectBench, please cite the paper below (NeurIPS 2026). To cite
+  the software itself, use the metadata in this file.
+type: software
+title: "SelectBench: a selectivity benchmark for structure-based generative models"
+abstract: >-
+  SelectBench evaluates whether molecules produced by structure-based
+  generative models bind selectively to their intended target rather than to
+  related off-targets. It provides docking-based selectivity metrics across
+  three benchmark suites: hand-curated case studies, a safety anti-target
+  panel, and oriented CrossDocked pairs.
+authors:
+  - family-names: Lee
+    given-names: Jungyoon
+  - family-names: Rajaonson
+    given-names: Ella
+  - family-names: Skreta
+    given-names: Marta
+version: 0.1.0
+date-released: "2026-09-10"
+# SelectBench is multi-licensed; `license` below carries the code licence only.
+# Benchmark data under data/ is CC BY 4.0, and baselines/decompdiff/compose_patch/
+# vendors third-party code under CC BY-NC 4.0. See LICENSE for the component list.
+license: MIT
+url: "https://github.com/lovetaro/selectbench"
+repository-code: "https://github.com/lovetaro/selectbench"
+keywords:
+  - structure-based drug design
+  - molecular generation
+  - selectivity
+  - molecular docking
+  - benchmark
+preferred-citation:
+  type: generic
+  title: "On the Selectivity of Generative Models in Structure-Based Drug Design"
+  authors:
+    - family-names: Rajaonson
+      given-names: Ella Miray
+    - family-names: Lee
+      given-names: Jungyoon
+    - family-names: Chau
+      given-names: William
+    - family-names: Aspuru-Guzik
+      given-names: Alan
+    - family-names: Sanchez-Lengeling
+      given-names: Benjamin
+    - family-names: Beaini
+      given-names: Dominique
+    - family-names: Neklyudov
+      given-names: Kirill
+    - family-names: Skreta
+      given-names: Marta
+  year: 2026
+  url: "https://arxiv.org/abs/2610.24124"
+  identifiers:
+    - type: other
+      value: "arXiv:2610.24124"
+      description: arXiv preprint
+  notes: "Accepted at NeurIPS 2026."

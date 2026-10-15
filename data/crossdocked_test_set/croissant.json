@@ -1,0 +1,356 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@type": "sc:Dataset",
+  "name": "selectbench-xl",
+  "description": "SelectBench CrossDocked suite: 9,900 oriented (on-target, off-target) pairs over 100 pockets, graded by difficulty, as a CSV manifest plus pocket PDB, PDBQT, docking-box and reference-ligand SDF files.",
+  "conformsTo": [
+    "http://mlcommons.org/croissant/1.0",
+    "http://mlcommons.org/croissant/RAI/1.0"
+  ],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://github.com/lovetaro/selectbench",
+  "creator": [
+    {
+      "@type": "sc:Person",
+      "name": "Jungyoon Lee"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Ella Rajaonson"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Marta Skreta"
+    }
+  ],
+  "datePublished": "2026-09-10",
+  "citeAs": "@misc{rajaonson2026selectivitygenerativemodelsstructurebased,\n      title={On the Selectivity of Generative Models in Structure-Based Drug Design}, \n      author={Ella Miray Rajaonson and Jungyoon Lee and William Chau and Alan Aspuru-Guzik and Benjamin Sanchez-Lengeling and Dominique Beaini and Kirill Neklyudov and Marta Skreta},\n      year={2026},\n      eprint={2610.24124},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2610.24124}, \n}",
+  "version": "0.1.0",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "github-repository",
+      "name": "github-repository",
+      "description": "SelectBench github repo.",
+      "contentUrl": "https://github.com/lovetaro/selectbench",
+      "encodingFormat": "git+https",
+      "sha256": "main"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "pdb-files",
+      "name": "pdb-files",
+      "description": "SelectBench XL PDB files",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "chemical/x-pdb",
+      "includes": "data/crossdocked_test_set/processed/*/*.pdb"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "pdbqt-files",
+      "name": "pdbqt-files",
+      "description": "SelectBench XL PDBQT files",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "chemical/x-pdbqt",
+      "includes": "data/crossdocked_test_set/processed/*/*.pdbqt"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "docking-box-files",
+      "name": "docking-box-files",
+      "description": "SelectBench XL docking box files",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "text/plain",
+      "includes": "data/crossdocked_test_set/processed/*/*.txt"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "ligand-sdf-files",
+      "name": "ligand-sdf-files",
+      "description": "SelectBench XL reference-ligand SDF files",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "chemical/x-mdl-sdfile",
+      "includes": "data/crossdocked_test_set/processed/*/*.sdf"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "crossdocked-test-set-summary",
+      "name": "crossdocked-test-set-summary",
+      "description": "CSV SelectBench XL dataset.",
+      "contentUrl": "https://raw.githubusercontent.com/lovetaro/selectbench/main/data/crossdocked_test_set/crossdocked_test_set_pairs.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "a0dad4c26350a2f35a480e586cb9fbb083c68708055ec61afd5b8a3807b7d8b8"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "crossdocked-test-set-records",
+      "name": "crossdocked-test-set-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "case_id",
+          "name": "case_id",
+          "description": "Case ID",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "crossdocked-test-set-summary"
+            },
+            "extract": {
+              "column": "case_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "on_target",
+          "name": "on_target",
+          "description": "Which PDB ID is on-target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "crossdocked-test-set-summary"
+            },
+            "extract": {
+              "column": "on_target"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "pdb1_id",
+          "name": "pdb1_id",
+          "description": "PDB ID of the first component in PDB pair",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "crossdocked-test-set-summary"
+            },
+            "extract": {
+              "column": "pdb1_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "pdb2_id",
+          "name": "pdb2_id",
+          "description": "PDB ID of the second component in PDB pair",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "crossdocked-test-set-summary"
+            },
+            "extract": {
+              "column": "pdb2_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "pdb1_chain_id",
+          "name": "pdb1_chain_id",
+          "description": "Chain number of the first component in PDB pair",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "crossdocked-test-set-summary"
+            },
+            "extract": {
+              "column": "pdb1_chain_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "pdb2_chain_id",
+          "name": "pdb2_chain_id",
+          "description": "Chain number of the second component in PDB pair",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "crossdocked-test-set-summary"
+            },
+            "extract": {
+              "column": "pdb2_chain_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "difficulty",
+          "name": "difficulty",
+          "description": "Difficulty of evaluation on PDB pair",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "crossdocked-test-set-summary"
+            },
+            "extract": {
+              "column": "difficulty"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "pdb-files-records",
+      "name": "pdb-files-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "pdb_file",
+          "name": "pdb_file",
+          "description": "Path to the PDB structure file",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "pdb-files"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "pdbqt-files-records",
+      "name": "pdbqt-files-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "pdbqt_file",
+          "name": "pdbqt_file",
+          "description": "Path to the PDBQT structure file",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "pdbqt-files"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "docking-box-files-records",
+      "name": "docking-box-files-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "docking_box_file",
+          "name": "docking_box_file",
+          "description": "Path to the docking box file",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "docking-box-files"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "rai:dataLimitations": "This dataset is synthetically created from the Crossdocked2020 test set split introduced by Luo et al.",
+  "rai:dataBiases": "The dataset is made from crossdocked protein-ligand complexes pockets. It follows the sanitization introduced by Luo et al.",
+  "rai:personalSensitiveInformation": "This dataset does not contain personal and/or sensitive information.",
+  "rai:dataUseCases": "We devise a large-scale approach to selectivity assessment by leveraging the CrossDocked2020 dataset, yielding 9,900 synthetic on-/off-target protein pairs binned into difficulty categories based on structural similarity.",
+  "rai:dataSocialImpact": "Positive impact: enables comprehensive evaluation of generative SBDD models to design selective small molecules. Risks: Use for clinical applications without validation. Mitigation: Clear guidelines and limitations are discussed in the paper.",
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://github.com/luost26/3D-Generative-SBDD",
+      "rdfs:label": "CrossDocked2020 - Luo split",
+      "sc:license": "MIT"
+    },
+    {
+      "@id": "https://github.com/SeulLee05/MOOD",
+      "sc:license": "MIT"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "dct:type": {
+        "@id": "https://www.wikidata.org/wiki/Q4929239"
+      },
+      "rdfs:label": "Extract PDB IDs from CrossDocked2020 test set",
+      "sc:description": "Extract PDB IDs from CrossDocked2020 test set from github"
+    },
+    {
+      "@type": "prov:Activity",
+      "dct:type": {
+        "@id": "https://www.wikidata.org/wiki/Q5227332"
+      },
+      "rdfs:label": "Probis clustering",
+      "sc:description": "Consider all possible protein pocket pairs in the Crossdocked2020 test set, excluding self-pairs, and compute their similarity using the ProBis algorithm as suggested in the original CrossDocked2020 paper. Based on the resulting Z-score similarity, we bin each pair into easy (Z-score < 2), medium (2 < Z-score < 3) and hard (3 < Z-score) categories, with higher similarity corresponding to harder test cases."
+    }
+  ],
+  "rai:hasSyntheticData": false
+}

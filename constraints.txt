@@ -1,0 +1,10 @@
+# Docking stack used for SelectBench's final evaluations. Scores depend on
+# these versions; install with them to reproduce our numbers:
+#
+#     pip install -e . -c constraints.txt
+#
+vina==1.2.7
+meeko==0.7.1
+rdkit==2025.9.6
+numpy==2.4.6
+scipy==1.17.1

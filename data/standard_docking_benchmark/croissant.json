@@ -1,0 +1,447 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@type": "sc:Dataset",
+  "name": "selectbench-pois",
+  "description": "SelectBench proteins-of-interest (PoI) suite: the 5 on-targets of the safety panel, as a CSV manifest with inline docking-box coordinates plus receptor PDB, PDBQT, box and reference-ligand SDF files.",
+  "conformsTo": [
+    "http://mlcommons.org/croissant/1.0",
+    "http://mlcommons.org/croissant/RAI/1.0"
+  ],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://github.com/lovetaro/selectbench",
+  "creator": [
+    {
+      "@type": "sc:Person",
+      "name": "Jungyoon Lee"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Ella Rajaonson"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Marta Skreta"
+    }
+  ],
+  "datePublished": "2026-09-10",
+  "citeAs": "@misc{rajaonson2026selectivitygenerativemodelsstructurebased,\n      title={On the Selectivity of Generative Models in Structure-Based Drug Design}, \n      author={Ella Miray Rajaonson and Jungyoon Lee and William Chau and Alan Aspuru-Guzik and Benjamin Sanchez-Lengeling and Dominique Beaini and Kirill Neklyudov and Marta Skreta},\n      year={2026},\n      eprint={2610.24124},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2610.24124}, \n}",
+  "version": "0.1.0",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "github-repository",
+      "name": "github-repository",
+      "description": "SelectBench github repo.",
+      "contentUrl": "https://github.com/lovetaro/selectbench",
+      "encodingFormat": "git+https",
+      "sha256": "main"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "pdb-files",
+      "name": "pdb-files",
+      "description": "SelectBench POIs PDB files",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "chemical/x-pdb",
+      "includes": "data/standard_docking_benchmark/processed/*/*.pdb"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "pdbqt-files",
+      "name": "pdbqt-files",
+      "description": "SelectBench POIs PDBQT files",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "chemical/x-pdbqt",
+      "includes": "data/standard_docking_benchmark/processed/*/*.pdbqt"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "docking-box-files",
+      "name": "docking-box-files",
+      "description": "SelectBench POIs docking box files",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "text/plain",
+      "includes": "data/standard_docking_benchmark/processed/*/*.txt"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "ligand-sdf-files",
+      "name": "ligand-sdf-files",
+      "description": "SelectBench PoIs reference-ligand SDF files",
+      "containedIn": {
+        "@id": "github-repository"
+      },
+      "encodingFormat": "chemical/x-mdl-sdfile",
+      "includes": "data/standard_docking_benchmark/processed/*/*.sdf"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "standard-docking-benchmark-summary",
+      "name": "standard-docking-benchmark-summary",
+      "description": "CSV SelectBench POIs dataset.",
+      "contentUrl": "https://raw.githubusercontent.com/lovetaro/selectbench/main/data/standard_docking_benchmark/standard_docking_benchmark.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "c27700859856c6974ba423cd66a3bc5eb519d61da011cfcd0809c48cfe0ad46d"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "standard-docking-benchmark-records",
+      "name": "standard-docking-benchmark-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "case_id",
+          "name": "case_id",
+          "description": "Case ID",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "case_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "case_name",
+          "name": "case_name",
+          "description": "Case name",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "case_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "pdb_id",
+          "name": "pdb_id",
+          "description": "PDB ID of the protein target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "pdb_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "pdb_chain_id",
+          "name": "pdb_chain_id",
+          "description": "Chain number of the protein target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "pdb_chain_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "pdb_ligand_id",
+          "name": "pdb_ligand_id",
+          "description": "Ligand ID of the protein target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "pdb_ligand_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "pdb_ligand_smiles",
+          "name": "pdb_ligand_smiles",
+          "description": "SMILES of the ligand of the protein target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "pdb_ligand_smiles"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "protein_sequence",
+          "name": "protein_sequence",
+          "description": "Protein sequence of the protein target",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "protein_sequence"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "center_x",
+          "name": "center_x",
+          "description": "Coordinate x of the center of the docking box",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "center_x"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "center_y",
+          "name": "center_y",
+          "description": "Coordinate y of the center of the docking box",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "center_y"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "center_z",
+          "name": "center_z",
+          "description": "Coordinate z of the center of the docking box",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "center_z"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "size_x",
+          "name": "size_x",
+          "description": "Coordinate x of the size of the docking box",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "size_x"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "size_y",
+          "name": "size_y",
+          "description": "Coordinate y of the size of the docking box",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "size_y"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "size_z",
+          "name": "size_z",
+          "description": "Coordinate z of the size of the docking box",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "standard-docking-benchmark-summary"
+            },
+            "extract": {
+              "column": "size_z"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "pdb-files-records",
+      "name": "pdb-files-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "pdb_file",
+          "name": "pdb_file",
+          "description": "Path to the PDB structure file",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "pdb-files"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "pdbqt-files-records",
+      "name": "pdbqt-files-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "pdbqt_file",
+          "name": "pdbqt_file",
+          "description": "Path to the PDBQT structure file",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "pdbqt-files"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "docking-box-files-records",
+      "name": "docking-box-files-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "docking_box_file",
+          "name": "docking_box_file",
+          "description": "Path to the docking box file",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "docking-box-files"
+            },
+            "extract": {
+              "fileProperty": "fullpath"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "rai:dataLimitations": "This dataset is manually curated from the literature and restricted to the binding sites used in the respective papers from which each case study is extracted from.",
+  "rai:dataBiases": "This dataset only contains orthosteric binding sites.",
+  "rai:personalSensitiveInformation": "This dataset does not contain personal and/or sensitive information.",
+  "rai:dataUseCases": "We propose to extend previous SBDD benchmarks to take selectivity into account. This standardizes previous benchmark on-target proteins (5 POIs).",
+  "rai:dataSocialImpact": "Positive impact: enables comprehensive evaluation of generative SBDD models to design selective small molecules. Risks: Use for clinical applications without validation. Mitigation: Clear guidelines and limitations are discussed in the paper.",
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://www.rcsb.org/",
+      "rdfs:label": "RCSB PDB",
+      "sc:license": "CC0 1.0"
+    },
+    {
+      "@id": "https://github.com/SeulLee05/MOOD",
+      "rdfs:label": "MOOD",
+      "sc:license": "MIT"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "dct:type": {
+        "@id": "https://www.wikidata.org/wiki/Q4929239"
+      },
+      "rdfs:label": "Manual PDB structural information extraction",
+      "sc:description": "Based on literature data, manually retrieve PDB IDs, chain ID, ligand ID, SMILES, docking boxes centers and sizes"
+    },
+    {
+      "@type": "prov:Activity",
+      "dct:type": {
+        "@id": "https://www.wikidata.org/wiki/Q5227332"
+      },
+      "rdfs:label": "Query protein sequences",
+      "sc:description": "Based on PDB ID, query PDB API to retrieve protein sequences"
+    }
+  ],
+  "rai:hasSyntheticData": false
+}

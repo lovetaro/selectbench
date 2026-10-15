@@ -1,0 +1,97 @@
+MIT License
+
+Copyright (c) 2026 SelectBench contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+================================================================================
+THIRD-PARTY COMPONENTS
+================================================================================
+
+The MIT licence above covers SelectBench's own code and documentation. It does
+NOT cover the third-party components listed below, which are redistributed under
+their own terms. Where those terms are more restrictive than MIT, the more
+restrictive terms govern that component.
+
+Each component's full upstream licence text is reproduced in the
+LICENSE.upstream file in its directory, or in the nearest parent that
+has one (the vendored TargetDiff checkpoint under
+baselines/targetdiff/pretrained_models/ is covered by
+baselines/targetdiff/LICENSE.upstream).
+
+--------------------------------------------------------------------------------
+NON-COMMERCIAL RESTRICTION -- READ THIS BEFORE COMMERCIAL USE
+--------------------------------------------------------------------------------
+
+  baselines/decompdiff/compose_patch/
+      Derived from DecompDiff (https://github.com/bytedance/DecompDiff)
+      at commit ed4e7d8.
+      Copyright 2023 ByteDance and/or its affiliates.
+      Licensed under Creative Commons Attribution-NonCommercial 4.0
+      International (CC BY-NC-4.0).
+      SPDX-License-Identifier: CC-BY-NC-4.0
+
+      *** This component MAY NOT be used for commercial purposes. ***
+      The MIT grant above does not apply to it. Users intending commercial
+      use must either obtain separate permission from the copyright holder
+      or remove this directory.
+
+--------------------------------------------------------------------------------
+MIT-LICENSED COMPONENTS
+--------------------------------------------------------------------------------
+
+  baselines/targetdiff/compose_patch/
+  baselines/targetdiff/pretrained_models/pretrained_diffusion.pt
+      Derived from / redistributed from TargetDiff
+      (https://github.com/guanjq/targetdiff) at commit 142f1eb.
+      Copyright (c) 2023 Jiaqi Guan. MIT licence.
+      The checkpoint is redistributed only because upstream's own download
+      links are unavailable; see
+      baselines/targetdiff/pretrained_models/README.md.
+
+  baselines/diffsbdd/compose_patch/
+      Derived from DiffSBDD (https://github.com/arneschneuing/DiffSBDD)
+      at commit 5d0d38d.
+      Copyright (c) 2022 Arne Schneuing, Yuanqi Du, Charles Harris.
+      MIT licence.
+
+  baselines/molform/patch/
+      Derived from MolFORM (https://github.com/huang3170/MolForm)
+      at commit 7a05ede.
+      Copyright (c) 2025 Jie Huang. MIT licence.
+
+  baselines/cmdgen/cmdgen_gmm.py
+      Derived from CMD-GEN (https://github.com/zyrlia1018/CMD-GEN)
+      at commit 8ab69ea.
+      Copyright (c) 2024 zyrlia1018. MIT licence.
+
+--------------------------------------------------------------------------------
+DATA
+--------------------------------------------------------------------------------
+
+  data/
+      The benchmark datasets are released under Creative Commons
+      Attribution 4.0 International (CC BY 4.0), not MIT. See data/README.md.
+      Structures derive from the RCSB Protein Data Bank and, for the
+      CrossDocked suite, from the CrossDocked2020 dataset; cite those sources
+      as appropriate.
+
+  Baselines not listed above (MolSnapper, Pocket2Mol, PocketFlow, SpecLig)
+  ship documentation only -- no upstream code is vendored for them.

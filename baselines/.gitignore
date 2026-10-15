@@ -1,0 +1,13 @@
+# Cloned upstream repos (not tracked; clone per each README)
+cmdgen/CMD-GEN/
+decompdiff/DecompDiff/
+diffsbdd/DiffSBDD/
+molform/MolForm/
+molsnapper/MolSnapper/
+pocket2mol/Pocket2Mol/
+pocketflow/PocketFlow/
+speclig/SpecLig/
+targetdiff/targetdiff/
+
+# Generation outputs
+*/outputs/

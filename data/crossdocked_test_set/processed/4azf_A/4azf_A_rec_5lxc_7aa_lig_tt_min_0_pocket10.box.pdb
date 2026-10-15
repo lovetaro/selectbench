@@ -1,0 +1,21 @@
+ATOM      1   Ne BOX X   1      34.376   2.596   6.305  1.00 10.00          Ne
+ATOM      2   Ne BOX X   2      54.376   2.596   6.305  1.00 10.00          Ne
+ATOM      3   Ne BOX X   3      54.376  22.596   6.305  1.00 10.00          Ne
+ATOM      4   Ne BOX X   4      34.376  22.596   6.305  1.00 10.00          Ne
+ATOM      5   Ne BOX X   5      34.376   2.596  26.305  1.00 10.00          Ne
+ATOM      6   Ne BOX X   6      54.376   2.596  26.305  1.00 10.00          Ne
+ATOM      7   Ne BOX X   7      54.376  22.596  26.305  1.00 10.00          Ne
+ATOM      8   Ne BOX X   8      34.376  22.596  26.305  1.00 10.00          Ne
+ATOM     10   Xe BOX X   8      44.376  12.596  16.305  1.00 10.00          Xe
+CONECT    1    2
+CONECT    1    4
+CONECT    1    5
+CONECT    2    3
+CONECT    2    6
+CONECT    3    4
+CONECT    3    7
+CONECT    4    8
+CONECT    5    6
+CONECT    5    8
+CONECT    6    7
+CONECT    7    8
